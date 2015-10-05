@@ -10,8 +10,10 @@ suite('drivers/tcp-sync', function() {
     client.goUrl('http://google.com');
     client.goUrl('http://yahoo.com');
     var location = client.executeScript(function() {
+      console.log("executeScript");
       return window.location.href;
     });
+    console.log("indexOf=" + location.indexOf("yahoo.com"));
     assert.ok(location.indexOf('yahoo.com') !== -1);
   });
 
